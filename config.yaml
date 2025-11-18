@@ -1,7 +1,7 @@
 # config.yaml (add-on)
 name: "Surikat Homeassistant"
 description: "Surikat plugin for Homeassistant"
-version: "1.0.1"
+version: "1.0.2"
 slug: "surikat-ha"
 init: false
 arch:
@@ -14,23 +14,19 @@ startup: services
 ports:
   8000/tcp: 8000
 options:
-  gateway_user: "user"
-  gateway_password: "password"
   mqtt_host: "mqtt://localhost"
   mqtt_port: 1883
   mqtt_topic: "frigate/events"
   mqtt_user: "user"
   mqtt_password: "password"
-  enable_logs: false
+  default_name: "password"
 schema:
-  gateway_user: str
-  gateway_password: str
   mqtt_host: str
-  mqtt_port: port
+  mqtt_port: int
   mqtt_topic: str
   mqtt_user: str
   mqtt_password: str
-  enable_logs: bool
+  default_name: str
 map:
   config:
     target: /config

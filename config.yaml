@@ -14,10 +14,8 @@ startup: services
 ports:
   8000/tcp: 8000
 options:
-  network: "wifi"
-  network_wifi_name: "wifi name"
-  network_wifi_user: "wifi user"
-  network_wifi_pwd: "wifi pwd"
+  gateway_user: "user"
+  gateway_password: "password"
   mqtt_host: "mqtt://localhost"
   mqtt_port: 1883
   mqtt_topic: "frigate/events"
@@ -25,10 +23,8 @@ options:
   mqtt_password: "password"
   enable_logs: false
 schema:
-  network: list(wifi|poe)
-  network_wifi_name: str
-  network_wifi_user: str
-  network_wifi_pwd: password
+  gateway_user: str
+  gateway_password: str
   mqtt_host: str
   mqtt_port: port
   mqtt_topic: str

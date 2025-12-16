@@ -1,8 +1,0 @@
-{
-  "domain": "surikat",
-  "name": "Surikat HA",
-  "requirements": ["flask", "paho-mqtt"],
-  "dependencies": ["frigate"],
-  "codeowners": ["@samuelgoumaz"],
-  "iot_class": "local_push"
-}

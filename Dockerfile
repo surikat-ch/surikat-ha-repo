@@ -1,16 +1,12 @@
-ARG BUILD_FROM=ghcr.io/hassio-addons/base:11.0.0
-FROM ${BUILD_FROM}
+FROM golang:1.22-alpine
 
-# Installer bash, python3, pip
-RUN apt-get update && apt-get install -y \
-    bash \
-    python3 \
-    python3-pip \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
+WORKDIR /app
 
-COPY run.sh /run.sh
-RUN chmod +x /run.sh
+COPY go.mod go.sum ./
+RUN go mod download
 
-COPY custom_components /config/custom_components
+COPY . .
 
-CMD [ "/run.sh" ]
+RUN go build -o surikat-api
+
+CMD ["./surikat-api"]

@@ -1,5 +1,10 @@
 # surikat-ha
 Homeassistant extension
+cd surikat-ha
+
+Setup go : 
+go mod init surikat-ha
+go mod tidy
 
 Build : 
 docker build -t surikat-ha .

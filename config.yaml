@@ -1,33 +1,21 @@
-# config.yaml (add-on)
-name: "Surikat Homeassistant"
-description: "Surikat plugin for Homeassistant"
-version: "1.0.22"
-slug: "surikat-ha"
-init: false
-arch:
-  - aarch64
-  - amd64
-  - armhf
-  - armv7
-  - i386
+name: Surikat HA
+slug: surikat-ha
+version: "0.1.0"
+description: Edit YAML configs securely
 startup: services
-ports:
-  8000/tcp: 8000
+boot: auto
+host_network: true
+
 options:
-  mqtt_host: "mqtt://localhost"
-  mqtt_port: 1883
-  mqtt_topic: "frigate/events"
-  mqtt_user: "user"
-  mqtt_password: "password"
-  default_name: "password"
+  port: 8129
+
 schema:
-  mqtt_host: str
-  mqtt_port: int
-  mqtt_topic: str
-  mqtt_user: str
-  mqtt_password: str
-  default_name: str
+  port: int
+
 map:
-  config:
-    target: /config
-    readonly: false
+  - config:rw
+
+ports:
+  8129/tcp: 8129
+
+ingress: false

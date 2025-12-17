@@ -30,3 +30,4 @@ map:
   - type: homeassistant_config
     read_only: False
     path: /custom/config/path
+image: repo/{arch}-surikat-ha

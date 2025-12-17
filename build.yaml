@@ -5,5 +5,6 @@
 
 build_from:
   armhf: surikat_ha/base-image:latest
+  aarch64: surikat_ha/base-image:latest
 args:
   my_build_arg: xy

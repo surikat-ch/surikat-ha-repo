@@ -1,6 +1,18 @@
+# config.yaml
+
+# Fichier central qui définit la configuration de l’add-on.
+# Contient des informations comme :
+# Nom, version, description
+# Configuration requise (ports, volumes, options)
+# Dépendances
+
+# Images Docker à utiliser
+# C’est ce fichier que Home Assistant lit pour comprendre comment installer et lancer ton add-on.
+
 name: "Surikat HA"
 description: "My first real add-on!"
-version: "1.0.2"
+url: "website with more information about the add-on (e.g., a forum thread for support)"
+version: "1.0.3"
 slug: "surikat_ha"
 init: false
 arch:
@@ -9,3 +21,42 @@ arch:
   - armhf
   - armv7
   - i386
+ports:
+  123/tcp: 123
+map:
+  - type: share
+    read_only: False
+  - type: ssl
+  - type: homeassistant_config
+    read_only: False
+    path: /surikat-ha/config/path
+image: repo/{arch}-surikat-ha
+options:
+  message: "custom things"
+  logins:
+    - username: beer
+      password: "123456"
+    - username: cheep
+      password: "654321"
+  random:
+    - haha
+    - hihi
+  link: "http://example.com/"
+  size: 15
+  count: 1.2
+schema:
+  message: str
+  logins:
+    - username: str
+      password: str
+  random:
+    - "match(^\\w*$)"
+  ssh:
+    private_key: str
+    public_key: str
+  link: url
+  size: "int(5,20)"
+  count: float
+  not_need: "str?"
+network:
+  80/TCP: The webserver port (Not used for Ingress)

@@ -3,6 +3,9 @@
 # Contient les instructions pour installer toutes les dépendances, copier les fichiers nécessaires, et lancer ton script principal.
 # Home Assistant construit l’add-on à partir de ce Dockerfile.
 
+# docker build -f Dockerfile.dev -t surikat-ha .
+# docker run -p 8000:8000 surikat-ha
+
 ARG BUILD_FROM
 FROM $BUILD_FROM
 

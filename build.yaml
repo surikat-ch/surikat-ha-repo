@@ -1,0 +1,9 @@
+# build.yaml
+# Décrit comment construire l’add-on, en particulier son image Docker.
+# Peut inclure des instructions pour récupérer des dépendances ou définir des variables d’environnement.
+# Home Assistant utilise ce fichier pour savoir comment “builder” ton add-on.
+
+build_from:
+  armhf: mycustom/base-image:latest
+args:
+  my_build_arg: xy

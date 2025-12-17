@@ -4,6 +4,6 @@
 # Home Assistant utilise ce fichier pour savoir comment “builder” ton add-on.
 
 build_from:
-  armhf: mycustom/base-image:latest
+  armhf: surikat_ha/base-image:latest
 args:
   my_build_arg: xy

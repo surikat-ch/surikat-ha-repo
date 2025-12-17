@@ -6,6 +6,10 @@
 ARG BUILD_FROM
 FROM $BUILD_FROM
 
+# ---- Arguments et variables ----
+ARG BUILD_ARCH
+ENV LANG=C.UTF-8
+
 # Install requirements for add-on
 RUN \
   apk add --no-cache \
@@ -14,5 +18,7 @@ RUN \
 # Copy data for add-on
 COPY run.sh /
 RUN chmod a+x /run.sh
+
+EXPOSE 123
 
 CMD [ "/run.sh" ]

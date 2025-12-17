@@ -7,4 +7,6 @@
 
 #!/usr/bin/with-contenv bashio
 
-echo "Hello world!"
+echo "Starting Surikat HA Add-on..."
+# Ici tu peux lancer ton service principal, ex: python3 main.py
+exec "$@"

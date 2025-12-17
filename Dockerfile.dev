@@ -9,6 +9,10 @@
 ARG BUILD_FROM=python:3.11-slim
 FROM $BUILD_FROM
 
+# ---- Arguments et variables ----
+ARG BUILD_ARCH
+ENV LANG=C.UTF-8
+
 # Installer les dépendances pour l'add-on
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
@@ -19,6 +23,9 @@ RUN apt-get update && \
 # Copy data for add-on
 COPY run.sh /
 RUN chmod a+x /run.sh
+
+# ---- Ports exposés ----
+EXPOSE 123
 
 CMD [ "/run.sh" ]
 

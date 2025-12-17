@@ -1,0 +1,24 @@
+# ---- Base image ----
+ARG BUILD_FROM=ghcr.io/home-assistant/amd64-base:15
+FROM ${BUILD_FROM}
+
+# ---- Arguments et variables ----
+ARG BUILD_ARCH
+ENV LANG=C.UTF-8
+
+# ---- Installer dépendances de base ----
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        python3 python3-pip python3-setuptools \
+        git curl jq \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# ---- Copier le code de l'add-on ----
+COPY run.sh /run.sh
+RUN chmod a+x /run.sh
+
+# ---- Ports exposés ----
+EXPOSE 123
+
+# ---- Commande de démarrage ----
+CMD [ "/run.sh" ]

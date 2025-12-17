@@ -1,7 +1,7 @@
 # config.yaml (add-on)
 name: "Surikat HA"
 description: "Surikat HA plugin for Home Assistant"
-version: "1.0.23"
+version: "1.0.24"
 slug: "surikat-ha"
 init: false
 arch:
